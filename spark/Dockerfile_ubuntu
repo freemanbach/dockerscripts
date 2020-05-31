@@ -14,6 +14,7 @@ RUN set -eux; \
 # you would need to download this file from Oracle or openJDK
 # before you can run this Dockerfile effeciently w/o errors
 COPY jdk-14.0.1_linux-x64_bin.tar.gz /var/tmp
+COPY spark-2.4.5-bin-hadoop2.7.tgz /var/tmp
 
 RUN set -eux; \
     tar xzf /var/tmp/jdk-14.0.1_linux-x64_bin.tar.gz -C /var/tmp; \
