@@ -13,6 +13,7 @@ RUN set -eux; \
     mkdir /opt/jdk14
     
 COPY jdk-14.0.1_linux-x64_bin.tar.gz /var/tmp
+COPY spark-2.4.5-bin-hadoop2.7.tgz /var/tmp
 
 RUN set -eux; \
     tar xzf /var/tmp/jdk-14.0.1_linux-x64_bin.tar.gz -C /var/tmp; \
@@ -20,7 +21,8 @@ RUN set -eux; \
     rm -fr /var/tmp/jdk-14.0.1; \
     rm -f /var/tmp/jdk-14.0.1_linux-x64_bin.tar.gz;\
     mkdir /usr/local/spark27; \
-    wget http://www.trieuvan.com/apache/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz -P /var/tmp/; \
+    # Forcing this to be a local file to be extracted rather than coming from internet over http
+    # wget http://www.trieuvan.com/apache/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz -P /var/tmp/; \
     tar xzf /var/tmp/spark-2.4.5-bin-hadoop2.7.tgz -C /var/tmp; \
     cp -r /var/tmp/spark-2.4.5-bin-hadoop2.7/ /usr/local/spark2.7/;\
     rm -fr /var/tmp/spark-2.4.5-bin-hadoop2.7/; \
