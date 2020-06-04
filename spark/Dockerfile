@@ -34,5 +34,6 @@ RUN set -eux; \
 
 RUN . ~/.bash_profile
     
-ENTRYPOINT ["/usr/local/spark27/sbin/start-master.sh"]
+#ENTRYPOINT ["/usr/local/spark27/sbin/start-master.sh"]
+ENTRYPOINT ["/bin/bash"]
 EXPOSE 8080
