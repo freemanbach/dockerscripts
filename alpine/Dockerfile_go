@@ -1,0 +1,26 @@
+FROM alpine:latest
+
+ENV PATH /usr/local/bin:$PATH
+
+ENV LANG C.UTF-8
+
+MAINTAINER Freeman Lo (aschenbach@gmail.com)
+
+RUN set -eux; \
+    apk update   ; \
+    apk add wget ; \
+    apk add curl ; \
+    apk add bash ; \
+    apk add vim
+
+COPY go1.14.4.darwin-amd64.tar.gz /var/tmp
+    
+RUN set -eux; \
+    cd /root ; \
+    curl https://gist.githubusercontent.com/nelsonJM/10401892/raw/0f5651affda3712c27f3350f0ab2b29107188cff/.profile -o .profile ;\
+    curl https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc -o .bashrc ; \
+    echo $'\n' >> .profile ; \
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> .profile ; \
+    tar -xzf /var/tmp/go1.14.4.darwin-amd64.tar.gz -C /usr/local
+    
+ENTRYPOINT ["/bin/bash"]
