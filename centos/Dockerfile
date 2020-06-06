@@ -29,7 +29,7 @@ RUN set -eux; \
     echo ' . /etc/bashrc' >> /root/.bash_profile; \
     echo 'fi' >> /root/.bash_profile; \
     echo $'\n\n' >> /root/.bash_profile; \
-    echo 'JAVA_HOME=/opt/jdk14_1' >> /root/.bash_profile; \
+    echo 'JAVA_HOME=/opt/jdk14' >> /root/.bash_profile; \
     echo 'export JAVA_HOME' >> /root/.bash_profile; \
     echo 'export PATH=$PATH:$JAVA_HOME/bin' >> /root/.bash_profile
 
