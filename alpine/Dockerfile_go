@@ -21,6 +21,8 @@ RUN set -eux; \
     curl https://gist.githubusercontent.com/marioBonales/1637696/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc -o .bashrc ; \
     echo $'\n' >> .profile ; \
     echo 'export PATH=$PATH:/usr/local/go/bin' >> .profile ; \
-    tar -xzf /var/tmp/go1.14.4.darwin-amd64.tar.gz -C /usr/local
+    tar -xzf /var/tmp/go1.14.4.linux-386.tar.gz -C /usr/local
+
+RUN . ~root/.profile
     
 ENTRYPOINT ["/bin/bash"]
